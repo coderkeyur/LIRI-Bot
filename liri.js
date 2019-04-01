@@ -6,6 +6,7 @@ var keys = require("./keys.js");
 var fs = require("fs");
 var request = require("request");
 var moment = require("moment");
+var Spotify = require('spotify-web-api-node');
 // var Spotify = require('node-spotify-api');
 
 
@@ -15,41 +16,6 @@ var secondCommand = process.argv[3];
 for (var i=4; i <process.argv.length; i++){
   secondCommand += "+" + process.argv[i];
 }
-
-// var spotify = new spotify(keys.spotify);
-
-
-// var getSpotify = function (songName) {
-//   if (songName === undefined) {
-//     songName = "365";
-//   }
-
-//   spotify.search(
-//     {
-//       type: "track",
-//       query: firstCommand
-//     },
-
-//     function(err,data) {
-//       if (err) { 
-//         console.log("Error: " + err);
-//         return;
-//       }
-
-//       var songResult = data.tracks.items;
-
-//       for (var i =0; i < songResult.length; i++) {
-//         console.log(i);
-//         console.log("Artist(s): " + songResult[i].artists.map(getArtistNames));
-//         console.log("Song name: " + songResult[i].name);
-//         console.log("Preview song: " + songResult[i].preview_url);
-//         console.log("Album: " + songResult[i].album.name);
-//         console.log("-----------------------------------");
-//       }
-//     }
-//   );
-// };
-
 
 
 function liriSwitch(firstCommand) {
@@ -78,6 +44,40 @@ function liriSwitch(firstCommand) {
     console.log("Type in 'movie-this' 'name of the movie' & enter to see the results")
     console.log("Type in 'spotify-this-song' 'name of the song' & enter to see the results")
   }
+};
+
+var spotify = new Spotify(keys.spotify);
+
+
+var getSpotify = function (songName) {
+  if (songName === undefined) {
+    songName = "365";
+  }
+
+  spotify.search(
+    {
+      type: "track",
+      query: secondCommand
+    },
+
+    function(err,data) {
+      if (err) { 
+        console.log("Error: " + err);
+        return;
+      }
+      console.log(data);
+      var songResult = data.tracks.items;
+
+      for (var i =0; i < songResult.length; i++) {
+        console.log(i);
+        console.log("Artist(s): " + songResult[i].artists.map(getArtistNames));
+        console.log("Song name: " + songResult[i].name);
+        console.log("Preview song: " + songResult[i].preview_url);
+        console.log("Album: " + songResult[i].album.name);
+        console.log("-----------------------------------");
+      }
+    }
+  );
 };
 
 //getMovie 
