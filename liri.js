@@ -4,10 +4,9 @@ require("dotenv").config();
 var axios = require("axios");
 var keys = require("./keys.js");
 var fs = require("fs");
-var request = require("request");
+// var request = require("request");
 var moment = require("moment");
-var Spotify = require('spotify-web-api-node');
-// var Spotify = require('node-spotify-api');
+var Spotify = require('node-spotify-api');
 
 
 var firstCommand = process.argv[2];
@@ -65,12 +64,12 @@ var getSpotify = function (songName) {
         console.log("Error: " + err);
         return;
       }
-      console.log(data);
+      // console.log(data);
       var songResult = data.tracks.items;
 
       for (var i =0; i < songResult.length; i++) {
-        console.log(i);
-        console.log("Artist(s): " + songResult[i].artists.map(getArtistNames));
+        // console.log(i);
+        console.log("Artist(s): " + songResult[i].artists.map((artist)=> {return artist.name}));
         console.log("Song name: " + songResult[i].name);
         console.log("Preview song: " + songResult[i].preview_url);
         console.log("Album: " + songResult[i].album.name);
