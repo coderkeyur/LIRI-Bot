@@ -2,10 +2,14 @@
 LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a _Language_ Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
 
 ### screenshots
-![liri-bot intro](https://github.com/coderkeyur/LIRI-Bot/images/liri-bot-intro.PNG)
-![liri-bot Spotify](https://github.com/coderkeyur/LIRI-Bot/images/liri-bot-spotify.PNG)
-![liri-bot movie](https://github.com/coderkeyur/LIRI-Bot/images/liri-bot-movie.PNG)
-![liri-bot concert](https://github.com/coderkeyur/LIRI-Bot/images/liri-bot-concert.PNG)
+#### LIRI-BOT intro
+![liri-bot intro](images/liri-bot-intro.PNG)
+#### LIRI-BOT Spotify
+![liri-bot Spotify](images/liri-bot-spotify.PNG)
+#### LIRI-BOT Movie
+![liri-bot movie](images/liri-bot-movie.PNG)
+#### LIRI-BOT Concert
+![liri-bot concert](images/liri-bot-concert.PNG)
 
 ### LIRI supported commands and results
 * spotify-this-song
