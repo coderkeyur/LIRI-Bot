@@ -22,7 +22,11 @@ function liriSwitch(firstCommand) {
   switch (firstCommand) {
 
     case "spotify-this-song":
-    getSpotify();
+    if(secondCommand){
+      getSpotify(secondCommand);
+    } else{
+      getSpotify(secondCommand = "halo");
+    }
     break;
 
     case "movie-this":
@@ -48,10 +52,10 @@ function liriSwitch(firstCommand) {
 var spotify = new Spotify(keys.spotify);
 
 
-var getSpotify = function (songName) {
-  if (songName === undefined) {
-    songName = "365";
-  }
+var getSpotify = function () {
+  // if (!songName) {
+  //   songName = "365";
+  // }
 
   spotify.search(
     {
