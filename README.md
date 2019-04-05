@@ -36,7 +36,7 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 2. Run npm install
 3. At command prompt run node liri.js ** (pass in LIRI supported command) (pass in name of the movie, song or band) **
 
-### technologies used
+### Technologies used
 * nodeJS
 * JavaScript
 * Spotify API
